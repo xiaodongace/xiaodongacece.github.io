@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SSM——Spring(2) - 小董</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="Welcome to Xiao Dong’s blog! Feel free to view the articles. If you have any questions, feel free t,"> 
+    <meta name="author" content="Xiao Dong"> 
+    <link rel="alternative" href="atom.xml" title="小董" type="application/atom+xml"> 
+    <link rel="icon" href="/img/logo/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="SSM——Spring(2) - 小董"/>
+    <meta name="twitter:description" content="Welcome to Xiao Dong’s blog! Feel free to view the articles. If you have any questions, feel free t,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="小董"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="SSM——Spring(2) - 小董"/>
+    <meta property="og:description" content="Welcome to Xiao Dong’s blog! Feel free to view the articles. If you have any questions, feel free t,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">小董</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://xiaodongace.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">SSM——Spring(2)</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">SSM——Spring(2)</h1>
+        <div class="stuff">
+            <span>五月 18, 2022</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h4 id="Welcome-to-Xiao-Dong’s-blog-Feel-free-to-view-the-articles-If-you-have-any-questions-feel-free-to-ask-me-on-GitHub"><a href="#Welcome-to-Xiao-Dong’s-blog-Feel-free-to-view-the-articles-If-you-have-any-questions-feel-free-to-ask-me-on-GitHub" class="headerlink" title="Welcome to Xiao Dong’s blog! Feel free to view the articles. If you have any questions, feel free to ask me on GitHub."></a>Welcome to Xiao Dong’s blog! Feel free to view the articles. If you have any questions, feel free to ask me on GitHub.</h4><h2 id="一、Spring配置数据源"><a href="#一、Spring配置数据源" class="headerlink" title="一、Spring配置数据源"></a>一、Spring配置数据源</h2><h4 id="1-1-数据源-连接池-的作用"><a href="#1-1-数据源-连接池-的作用" class="headerlink" title="1.1 数据源(连接池)的作用"></a>1.1 数据源(连接池)的作用</h4><ul>
+<li><p>数据源(连接池)是提高程序性能如出现的。</p>
+</li>
+<li><p>事先实例化数据源，初始化部分连接资源。</p>
+</li>
+<li><p>使用连接资源时从数据源中获取。</p>
+</li>
+<li><p>使用完毕后将连接资源归还给数据源。</p>
+</li>
+<li><p>常见的数据源(连接池)：DBCP、C3P0、BoneCP、Druid等。</p>
+<br></li>
+</ul>
+<h4 id="1-2-数据源的开发步骤"><a href="#1-2-数据源的开发步骤" class="headerlink" title="1.2 数据源的开发步骤"></a>1.2 数据源的开发步骤</h4><ul>
+<li><p>导入数据源的坐标和数据库驱动坐标。</p>
+</li>
+<li><p>创建数据源对象。</p>
+</li>
+<li><p>设置数据源的基本连接数据。</p>
+</li>
+<li><p>使用数据源获取连接资源和归还连接资源。</p>
+</li>
+<li><p>导入c3p0和druid的坐标。<br><img src="/2022/05/18/Spring2/1.jpeg"></p>
+<br>
+
+</li>
+<li><p>导入MySQL数据库驱动坐标。<br><img src="/2022/05/18/Spring2/2.jpeg"></p>
+<br>
+
+</li>
+<li><p>创建C3P0连接池。<br><img src="/2022/05/18/Spring2/3.jpeg"></p>
+<br>
+
+</li>
+<li><p>创建Druid连接池。<br><img src="/2022/05/18/Spring2/4.jpeg"></p>
+<br>
+
+</li>
+<li><p>提取jdbc.properties配置文件。<br><img src="/2022/05/18/Spring2/5.jpeg"></p>
+<br>
+
+</li>
+<li><p>读取<strong>jdbc.properties</strong>配置文件创建连接池。<br><img src="/2022/05/18/Spring2/6.jpeg"></p>
+<br></li>
+</ul>
+<h4 id="1-3-Spring配置数据源"><a href="#1-3-Spring配置数据源" class="headerlink" title="1.3 Spring配置数据源"></a>1.3 Spring配置数据源</h4><ul>
+<li><p>可以将DataSource的创建权交由Spring容器去完成。</p>
+<ul>
+<li>DataSource有无参构造方法，而Spring默认就是通过无参构造方法实例化对象的。</li>
+<li>DataSource要想使用需要通过set方法设置数据库连接信息，而Spring可以通过set方法进行字符串注入。<br><img src="/2022/05/18/Spring2/7.jpeg"></li>
+</ul>
+</li>
+<li><p>测试从容器当中获取数据源。<br><img src="/2022/05/18/Spring2/8.jpeg"></p>
+</li>
+</ul>
+<h4 id="1-4-抽取JDBC配置文件"><a href="#1-4-抽取JDBC配置文件" class="headerlink" title="1.4 抽取JDBC配置文件"></a>1.4 抽取JDBC配置文件</h4><ul>
+<li><p>applicationContext.xml加载jdbc.properties配置文件获得连接信息。</p>
+</li>
+<li><p>首先，需要引入context命名空间和约束路径：</p>
+</li>
+<li><p>命名空间：xmlns:context&#x3D;”<a target="_blank" rel="noopener" href="http://www.springframework.org/schema/context&quot;">http://www.springframework.org/schema/context&quot;</a></p>
+</li>
+<li><p>约束路径：<a target="_blank" rel="noopener" href="http://www.springframework.org/schema/context">http://www.springframework.org/schema/context</a> <a target="_blank" rel="noopener" href="http://www.springframework.org/schema/context/spring-context.xsd%E3%80%82">http://www.springframework.org/schema/context/spring-context.xsd。</a><br><img src="/2022/05/18/Spring2/9.jpeg"> </p>
+<br></li>
+</ul>
+<h2 id="二、Spring注解开发"><a href="#二、Spring注解开发" class="headerlink" title="二、Spring注解开发"></a>二、Spring注解开发</h2><ul>
+<li><p>Spring是轻代码而重配置的框架，配置比较繁重，影响开发效率，所以注解开发是一种趋势，注解代替xml配置文件可以简化配置，提高开发效率。</p>
+</li>
+<li><p>Spring原始注解主要是替代 <strong>Bean</strong> 的配置。<br><img src="/2022/05/18/Spring2/10.jpeg"> </p>
+<br>
+
+</li>
+<li><p>使用注解进行开发时，需要在<strong>applicationContext.xml</strong>中配置组件扫描，作用是指定哪个包及其子包下的Bean需要进行扫描以便识别使用注解配置的类、字段和方法。<br><img src="/2022/05/18/Spring2/11.jpeg"> </p>
+<br>
+
+</li>
+<li><p>使用@Compont或@Repository标识UserDaoImpl需要Spring进行实例化。<br><img src="/2022/05/18/Spring2/12.jpeg"> </p>
+<br>
+
+</li>
+<li><p>使用@Compont或@Service标识UserServiceImpl需要Spring进行实例化，使用@Autowired或者@Autowired+@Qulifier或者@Resource进行userDao的注入。<br><img src="/2022/05/18/Spring2/13.jpeg"> </p>
+<br>
+
+</li>
+<li><p>使用@Value进行字符串的注入。<br><img src="/2022/05/18/Spring2/14.jpeg"> </p>
+<br>
+
+</li>
+<li><p>使用@Scope标注Bean的范围。<br><img src="/2022/05/18/Spring2/15.jpeg"> </p>
+<br>
+
+</li>
+<li><p>使用@PostConstruct标注初始化方法，使用@PreDestroy标注销毁方法。<br><img src="/2022/05/18/Spring2/16.jpeg"> </p>
+<br>
+
+</li>
+<li><p>使用上面的注解还不能全部替代xml配置文件，还需要使用注解替代的配置如下。<br><img src="/2022/05/18/Spring2/17.jpeg"><br><img src="/2022/05/18/Spring2/18.jpeg"> </p>
+<br>
+
+</li>
+<li><p>@Configuration和@ComponentScan和@Import。<br><img src="/2022/05/18/Spring2/19.jpeg"> </p>
+<br>
+
+</li>
+<li><p>@PropertySource和@value。<br><img src="/2022/05/18/Spring2/20.jpeg"> </p>
+<br>
+
+</li>
+<li><p>@Bean。<br><img src="/2022/05/18/Spring2/21.jpeg"> </p>
+<br>
+
+</li>
+<li><p>测试加载核心配置类创建Spring容器。<br><img src="/2022/05/18/Spring2/22.jpeg"> </p>
+<br></li>
+</ul>
+<h2 id="三、Spring整合Junit"><a href="#三、Spring整合Junit" class="headerlink" title="三、Spring整合Junit"></a>三、Spring整合Junit</h2><h4 id="3-1-原始Junit测试Spring的问题"><a href="#3-1-原始Junit测试Spring的问题" class="headerlink" title="3.1 原始Junit测试Spring的问题"></a>3.1 原始Junit测试Spring的问题</h4><ul>
+<li>在测试类中，每个测试方法都有以下两行代码。这两行代码的作用是获取容器，如果不写的话，直接会提示空指针异常。所以又不能轻易删掉。<br><img src="/2022/05/18/Spring2/23.jpeg"> <br></li>
+</ul>
+<h4 id="3-2-上述问题解决方法"><a href="#3-2-上述问题解决方法" class="headerlink" title="3.2 上述问题解决方法"></a>3.2 上述问题解决方法</h4><ul>
+<li>让SpringJunit负责创建Spring容器，但是需要将配置文件的名称告诉它。将需要进行测试Bean直接在测试类中进行注入。<br></li>
+</ul>
+<h4 id="3-3-Spring集成Junit步骤"><a href="#3-3-Spring集成Junit步骤" class="headerlink" title="3.3 Spring集成Junit步骤"></a>3.3 Spring集成Junit步骤</h4><p><img src="/2022/05/18/Spring2/24.jpeg"><br><br></p>
+<ul>
+<li><p>导入spring集成Junit的坐标。<br><img src="/2022/05/18/Spring2/25.jpeg"> </p>
+<br>
+
+</li>
+<li><p>使用@Runwith注解替换原来的运行期。<br><img src="/2022/05/18/Spring2/26.jpeg"> </p>
+<br>
+
+</li>
+<li><p>使用@ContextConfiguration指定配置文件或配置类。<br><img src="/2022/05/18/Spring2/27.jpeg"> </p>
+<br>
+
+</li>
+<li><p>使用@Autowired注入需要测试的对象。<br><img src="/2022/05/18/Spring2/28.jpeg"> </p>
+<br>
+
+</li>
+<li><p>创建测试方法进行测试。<br><img src="/2022/05/18/Spring2/29.jpeg"></p>
+</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://link.hhtjim.com/163/425570952.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":240,"height":500},"mobile":{"show":false},"rect":"opacity:0.9","log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
